@@ -1,3 +1,5 @@
+package aula20240815n;
+
 public class Pessoa {
     public int idade;
     public String nome;
