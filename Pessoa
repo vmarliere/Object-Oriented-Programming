@@ -1,0 +1,8 @@
+public class Pessoa {
+    public int idade;
+    public String nome;
+    
+    public void exibir(){
+        System.out.println(nome+" tem"+idade+" ano(s)");
+    }
+}
