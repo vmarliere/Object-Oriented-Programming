@@ -1,0 +1,31 @@
+package aula240822n;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Vinícius Brazão
+ */
+public class Aula240822N {
+    private static void exemplo1() {
+        String vTexto = JOptionPane.showInputDialog(null,
+                "Digite um valor",
+                "Fatorial", JOptionPane.QUESTION_MESSAGE);
+        int valor = Integer.parseInt(vTexto);
+        int a = 1;
+        while (valor > 0) {
+            a *= valor;
+            valor--;
+        }
+        JOptionPane.showMessageDialog(null, a, "Fatorial",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        exemplo1();
+    }
+    
+}
