@@ -1,4 +1,4 @@
-package aula240822n;
+package aula20240822n;
 
 import javax.swing.JOptionPane;
 
@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
  *
  * @author Vinícius Brazão
  */
-public class Aula240822N {
+public class Aula20240822N {
     private static void exemplo1() {
         String vTexto = JOptionPane.showInputDialog(null,
                 "Digite um valor",
