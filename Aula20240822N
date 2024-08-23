@@ -1,12 +1,13 @@
 package aula20240822n;
 
+import aula20240822n.cadastro.Pessoa;
+import aula20240822n.cadastro.Profissional;
+import java.util.Arrays;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Vinícius Brazão
- */
 public class Aula20240822N {
+
     private static void exemplo1() {
         String vTexto = JOptionPane.showInputDialog(null,
                 "Digite um valor",
@@ -21,11 +22,65 @@ public class Aula20240822N {
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        exemplo1();
+    public static long fiboRec(long n) {
+        if (n < 2) {
+            return 1;
+        } else {
+            return fiboRec(n - 1) + fiboRec(n - 2);
+        }
     }
-    
+
+    public static long fiboNRec(long n) {
+        long v1 = 1;
+        long v2 = 1;
+        long f = 1;
+        for (int i = 2; i <= n; i++) {
+            f = v1 + v2;
+            v1 = v2;
+            v2 = f;
+        }
+        return f;
+    }
+
+    public static void exemplo2() {
+        long valor = 45;
+        long tempo = (new Date()).getTime();
+        System.out.println((new Date()).getTime() - tempo);
+        System.out.println("N Recursivo: " + fiboNRec(valor));
+        System.out.println((new Date()).getTime() - tempo);
+        System.out.println("Recursivo: " + fiboRec(valor));
+        System.out.println((new Date()).getTime() - tempo);
+    }
+
+    public static void exemplo3() {
+        int opcao;
+        do {
+            opcao = JOptionPane.showConfirmDialog(null,
+                    "Você quer continuar?",
+                    "Escolha uma opção...",
+                    JOptionPane.YES_NO_CANCEL_OPTION,
+                    JOptionPane.ERROR_MESSAGE);
+            // 0=yes, 1=no, 2=cancel 
+            System.out.println("Opcao: " + opcao);
+        } while (opcao == 0);
+    }
+
+    public static void exemplo4() {
+        Pessoa[] opcoes = {new Pessoa(25, "Ana"),
+            new Profissional("Engenheiro", 30, "Carlos"),
+            new Profissional("Medica", 50, "Beatriz"),
+            new Pessoa(18, "Eduardo")};
+        Arrays.sort(opcoes, (p1, p2) -> p1.nome.compareTo(p2.nome));
+        Pessoa p = (Pessoa) JOptionPane.showInputDialog(null, "Pessoa",
+                "Selecione", JOptionPane.QUESTION_MESSAGE,
+                null, opcoes, null);
+        if (p != null && p instanceof Profissional) {
+            System.out.println("Escolheu um profissional");
+        }
+    }
+
+    public static void main(String[] args) {
+        exemplo4();
+    }
+
 }
