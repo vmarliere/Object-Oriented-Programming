@@ -1,0 +1,10 @@
+package aula20240829n;
+
+public class Aula20240829N {
+
+    public static void main(String[] args) {
+        new MinhaJanela1().setVisible(true);
+    }
+    
+}
+
