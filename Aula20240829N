@@ -1,0 +1,67 @@
+package aula20240829n;
+
+import java.awt.GridLayout;
+import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class MinhaJanela1 extends JFrame{
+    
+    private final JTextField txtValor1 = new JTextField(10);
+    private final JTextField txtValor2 = new JTextField(10);
+    private final JButton btnSomar = new JButton("Somar");
+    private final JButton btnSubtrair = new JButton("Subtrair");
+    private final JLabel btnResultado = new JLabel("?");
+    
+    private void criarComponentes() {
+        setLayout(new GridLayout(4, 2));
+        add(new JLabel("Primeiro Valor"));
+        add(txtValor1);
+        add(new JLabel("Segundo Valor"));
+        add(txtValor2);
+        add(btnSomar);
+        add(btnSubtrair);
+        add(new JLabel(""));
+        add(btnResultado);
+    }
+    
+    private void addEventos() {
+        btnSomar.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int v1 = Integer.parseInt(txtValor1.getText());
+            int v2 = Integer.parseInt(txtValor2.getText());
+            int v3 = v1 + v2;
+            btnResultado.setText("A soma de "+v1+" e "+v2+
+                                 " resulta em "+v3);
+            }
+        });
+    }
+    
+    {
+        btnSubtrair.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int v1 = Integer.parseInt(txtValor1.getText());
+            int v2 = Integer.parseInt(txtValor2.getText());
+            int v3 = v1 - v2;
+            btnResultado.setText("A subtração de "+v1+" e "+v2+
+                                 " resulta em "+v3);
+            }
+        });
+    }
+    
+    public MinhaJanela1() throws HeadlessException {
+        super();
+        setBounds(50, 50, 300, 150);
+        setTitle("Minha Janela");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        criarComponentes();
+        addEventos();
+    }
+    
+}
