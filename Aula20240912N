@@ -1,0 +1,38 @@
+
+package aula20240912n;
+
+import java.sql.*;
+
+public class Aula20240912N {
+    public static void incluir(Connection c1, int codigo, String nome,
+                        int quantidade) throws Exception{
+        PreparedStatement ps = c1.prepareStatement(
+                                  "INSERT INTO PRODUTO VALUES(?,?,?)");
+        ps.setInt(1, codigo);
+        ps.setString(2, nome);
+        ps.setInt(3, quantidade);
+        ps.executeUpdate();
+    }
+    public static void excluir(Connection c1, int codigo) throws Exception {
+        PreparedStatement ps = c1.prepareStatement (
+                                  "DELETE FROM PRODUTO WHERE CODIGO = ?");
+        ps.setInt(1, codigo);
+        ps.executeUpdate();
+
+    }
+
+   
+    public static void main(String[] args) throws Exception {
+        Class.forName("org.h2.Driver");
+        Connection c1 = DriverManager.getConnection("jdbc:h2:C:\\Users\\13604499739\\Downloads\\h2-2024-08-11\\datan");
+        Statement st = c1.createStatement();
+        ResultSet r1 = st.executeQuery("SELECT * FROM PRODUTO");
+        while (r1.next())
+            System.out.println(r1.getString("nome"));
+        r1.close();
+        st.close();
+        c1.close();
+        
+    }
+    
+}
