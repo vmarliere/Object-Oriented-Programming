@@ -1,0 +1,23 @@
+
+package aula20240905n;
+
+public class Produto {
+    
+    public int codigo;
+    public String nome;
+    public int quantidade;
+    
+    public Produto() {
+        
+    }
+
+    public Produto(int codigo, int quantidade) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.quantidade = quantidade;
+    }
+    
+    
+    
+    
+}
